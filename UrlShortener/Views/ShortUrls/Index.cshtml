@@ -1,0 +1,35 @@
+﻿@model IEnumerable<UrlShortener.Models.ShortUrl>
+
+@{
+    ViewData["Title"] = "Скорочені URL";
+}
+
+<h2>Скорочені URL</h2>
+
+<a href="/ShortUrls/Create" class="btn btn-primary mb-3">Додати новий URL</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Оригінальний URL</th>
+            <th>Скорочений URL</th>
+            <th>Створено</th>
+            <th>Ким створено</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>@item.OriginalUrl</td>
+                    <td>
+                        <a href="@Url.Action("RedirectToOriginal", "ShortUrls", new { shortCode = item.ShortCode })" target="_blank">
+                        @item.ShortCode
+                        </a>
+                    </td>
+                    <td>@item.CreatedDate.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@item.CreatedBy</td>
+                </tr>
+        }
+    </tbody>
+</table>

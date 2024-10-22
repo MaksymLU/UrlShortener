@@ -1,0 +1,35 @@
+﻿@model UrlShortener.Models.ShortUrl
+
+@{
+    ViewData["Title"] = "Скоротити URL";
+}
+
+<h2>Скоротити URL</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+        <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+        </div>
+}
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="OriginalUrl" class="control-label"></label>
+        <input asp-for="OriginalUrl" class="form-control" />
+        <span asp-validation-for="OriginalUrl" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Скоротити</button>
+</form>
+
+@if (ViewBag.ShortenedUrl != null)
+{
+        <div class="alert alert-success mt-3">
+            <strong>Скорочений URL:</strong> 
+            <a href="@ViewBag.ShortenedUrl" target="_blank">@ViewBag.ShortenedUrl</a>
+        </div>
+}
+
+@section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+}

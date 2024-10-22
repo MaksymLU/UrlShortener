@@ -1,0 +1,19 @@
+﻿@model UrlShortener.Models.UserLoginModel
+
+
+<h2>Вхід</h2>
+<form method="post">
+    <div class="form-group">
+        <label>Email:</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Пароль:</label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Увійти</button>
+    <a href="/Account/Register" class="btn btn-primary">Зареєструватися</a>
+
+</form>
