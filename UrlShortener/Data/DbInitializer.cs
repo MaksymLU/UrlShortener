@@ -14,21 +14,21 @@ namespace UrlShortener.Data
                 return; 
             }
 
-            var users = new User[]
+            var users = new ApplicationUser[]
             {
-                new User
+                new ApplicationUser
                 {
                     Email = "admin@example.com",
                     PasswordHash = HashPassword("Admin123!"), 
                     Role = "Admin"
                 },
-                new User
+                new ApplicationUser
                 {
                     Email = "user1@example.com",
                     PasswordHash = HashPassword("User123!"), 
                     Role = "User"
                 },
-                new User
+                new ApplicationUser
                 {
                     Email = "user2@example.com",
                     PasswordHash = HashPassword("User456!"), 
@@ -36,7 +36,7 @@ namespace UrlShortener.Data
                 }
             };
 
-            foreach (User user in users)
+            foreach (ApplicationUser user in users)
             {
                 context.Users.Add(user);
             }

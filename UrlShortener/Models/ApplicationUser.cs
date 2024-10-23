@@ -16,5 +16,8 @@ namespace UrlShortener.Models
 
         [Required]
         public string Role { get; set; } = "User";
+
+        public string UserName { get; set; } = null!; 
     }
+
 }

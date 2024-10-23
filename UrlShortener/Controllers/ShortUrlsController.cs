@@ -24,11 +24,28 @@ namespace UrlShortener.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("api/shorturls")]
+        public IActionResult GetAllShortUrls()
+        {
+            var shortUrls = _context.ShortUrls
+                .Select(s => new
+                {
+                    s.OriginalUrl,
+                    s.ShortCode,
+                    s.CreatedDate,
+                    s.CreatedBy
+                })
+                .ToList();
+
+            return Ok(shortUrls);
+        }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(ShortUrl shortUrl)
+        [Route("api/shorturls")]
+        public IActionResult CreateShortUrl([FromBody] ShortUrl shortUrl)
         {
 
+            
                 shortUrl.ShortCode = GenerateShortCode();
                 shortUrl.CreatedDate = DateTime.Now;
                 shortUrl.CreatedBy = User.Identity?.Name ?? "Anonymous";
@@ -36,10 +53,12 @@ namespace UrlShortener.Controllers
                 _context.ShortUrls.Add(shortUrl);
                 _context.SaveChanges();
 
-                ViewBag.ShortenedUrl = $"{Request.Scheme}://{Request.Host}/{shortUrl.ShortCode}";
-                return View(shortUrl);
+                return Ok(new { ShortenedUrl = $"{Request.Scheme}://{Request.Host}/{shortUrl.ShortCode}" });
+
         }
-        [HttpGet("{shortCode}")]
+
+        [HttpGet]
+        [Route("api/shorturls/{shortCode}")]
         public IActionResult RedirectToOriginal(string shortCode)
         {
             var shortUrl = _context.ShortUrls.FirstOrDefault(s => s.ShortCode == shortCode);
@@ -47,8 +66,9 @@ namespace UrlShortener.Controllers
             {
                 return Redirect(shortUrl.OriginalUrl);
             }
-            return NotFound();
+            return NotFound(new { Message = "URL not found" });
         }
+
 
 
         private string GenerateShortCode()

@@ -10,7 +10,9 @@ namespace UrlShortener.Data
         {
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
+
+
         public DbSet<ShortUrl> ShortUrls { get; set; }
     }
 }

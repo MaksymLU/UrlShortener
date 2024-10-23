@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\C#\\Inforce\\UrlShortener\\UrlShortener.csproj": {}
+    "C:\\Users\\1\\Desktop\\git\\UrlShortener\\UrlShortener\\UrlShortener.csproj": {}
   },
   "projects": {
-    "D:\\Code\\C#\\Inforce\\UrlShortener\\UrlShortener.csproj": {
+    "C:\\Users\\1\\Desktop\\git\\UrlShortener\\UrlShortener\\UrlShortener.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\C#\\Inforce\\UrlShortener\\UrlShortener.csproj",
+        "projectUniqueName": "C:\\Users\\1\\Desktop\\git\\UrlShortener\\UrlShortener\\UrlShortener.csproj",
         "projectName": "UrlShortener",
-        "projectPath": "D:\\Code\\C#\\Inforce\\UrlShortener\\UrlShortener.csproj",
+        "projectPath": "C:\\Users\\1\\Desktop\\git\\UrlShortener\\UrlShortener\\UrlShortener.csproj",
         "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\C#\\Inforce\\UrlShortener\\obj\\",
+        "outputPath": "C:\\Users\\1\\Desktop\\git\\UrlShortener\\UrlShortener\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",
